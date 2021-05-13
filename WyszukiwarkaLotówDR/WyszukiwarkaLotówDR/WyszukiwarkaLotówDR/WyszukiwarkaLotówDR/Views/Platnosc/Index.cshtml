@@ -1,0 +1,45 @@
+﻿@model IEnumerable<WyszukiwarkaLotówDR.Baza_danych.Platnosci>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nazwa)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                <img src="~/images/@item.Obraz" width="100" height="50" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nazwa)
+            </td>
+            <td>
+                @Html.ActionLink("Wybierz", "Index", new { nazwa = item.Nazwa })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<button style="border-color:white">
+    <a class="text-center" style="color:darkorange" asp-area="" asp-controller="ZakupBiletu" asp-action="Create"><span class="text-center" style="font-weight:Bold; font-size:1.5vw">Powrót</a>
+</button>
+<button style="border-color:white">
+    <a class="text-center" style="color:darkorange" asp-area="" asp-controller="Dostawa" asp-action="Index"><span class="text-center" style="font-weight:Bold; font-size:1.5vw">Przejdź dalej</a>
+</button>
