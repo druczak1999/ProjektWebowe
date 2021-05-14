@@ -1,0 +1,43 @@
+﻿@model WyszukiwarkaLotówDR.Baza_danych.Sprzedaz
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Sprzedaz</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Klient" class="control-label"></label>
+                <input asp-for="Klient.PESEL" class="form-control" />
+                <input asp-for="Klient.Nazwisko" class="form-control" />
+                <input asp-for="Klient.Imie" class="form-control" />
+                <input asp-for="Klient.NumerDokumentu" class="form-control" />
+                <input asp-for="Klient.Email" class="form-control" />
+                <input asp-for="Klient.NumerTelefonu" class="form-control" />
+                <span asp-validation-for="Klient" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IloscBiletow" class="control-label"></label>
+                <input asp-for="IloscBiletow" class="form-control" />
+                <span asp-validation-for="IloscBiletow" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
