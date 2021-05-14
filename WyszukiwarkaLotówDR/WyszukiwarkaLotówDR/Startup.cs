@@ -26,6 +26,9 @@ namespace WyszukiwarkaLotówDR
         {
             services.AddControllersWithViews();
             services.AddSingleton<IBazaLotów, BazaLotów>();
+            services.AddSingleton<IBazaPlatnosci, BazaPlatnosci>();
+            services.AddSingleton<IZakupBiletu, ZakupBiletu>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,6 +53,9 @@ namespace WyszukiwarkaLotówDR
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                    name: "admin",
+                    pattern: "{controller=Admin}/{action=Index}/admin");
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
