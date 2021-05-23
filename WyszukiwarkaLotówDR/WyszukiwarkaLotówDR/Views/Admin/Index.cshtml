@@ -1,0 +1,86 @@
+﻿@model IEnumerable<WyszukiwarkaLotówDR.Loty.Lot>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+
+<h1>Wyszukiwarka lotów</h1>
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Wpisz miejsce wylotu: <input type="text" name="mWylotu" value="@ViewData["Wylot"]" />
+            Wpisz miejsce przylotu: <input type="text" name="mPrzylotu" value="@ViewData["Przylot"]" />
+            <div class="md-form md-outline input-with-post-icon datepicker">
+                Podaj datę wylotu: <input placeholder="Select date" type="date" id="example" class="form-control" name="data" value="@ViewData["DataWylotu"]">
+            </div>
+            <input type="submit" value="Szukaj" class="btn btn-default" />
+            <a asp-action="Index">Pokaż pełną listę lotów</a>
+        </p>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["DataSortParm"]">@Html.DisplayNameFor(model => model.czasWylotu) </a>
+            </th>
+            <th>
+                Data przylotu
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">Miejsce wylotu</a>
+            </th>
+            <th>
+                Miejsce przylotu
+            </th>
+
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["CenaSortParm"]"> @Html.DisplayNameFor(model => model.cenaBiletu) </a>
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(45).jpg" width="50" height="30" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.czasWylotu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.czasPrzylotu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.miejsceWylotu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.miejscePrzylotu)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.cenaBiletu) zł
+                </td>
+
+                <td>
+                    @Html.ActionLink("Edytuj", "Edit", new { id=item.idLotu }) |
+                    @Html.ActionLink("Szczegóły", "Details", new { id = item.idLotu }) |
+                    @Html.ActionLink("Usuń", "Delete", new { id=item.idLotu})
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>
+    <a asp-action="Create">Dodaj nowy lot</a>
+ 
+</p>

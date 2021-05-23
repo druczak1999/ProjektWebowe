@@ -1,0 +1,45 @@
+﻿@model WyszukiwarkaLotówDR.Baza_danych.Sprzedaz
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h4>Uzupełnij dane </h4>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Klient" class="control-label"></label>
+                <br/>
+                PESEL: <input asp-for="Klient.PESEL" class="form-control" />
+                Nazwisko: <input asp-for="Klient.Nazwisko" class="form-control" />
+                Imie: <input asp-for="Klient.Imie" class="form-control" />
+                Nr dokumentu: <input asp-for="Klient.NumerDokumentu" class="form-control" />
+                Email: <input asp-for="Klient.Email" class="form-control" />
+                Nr Telefonu<input asp-for="Klient.NumerTelefonu" class="form-control" />
+                <span asp-validation-for="Klient" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IloscBiletow" class="control-label"></label>
+                <input asp-for="IloscBiletow" class="form-control" />
+                <span asp-validation-for="IloscBiletow" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input style="width: 200px; height: 50px; font-size:x-large"   type="submit" value="Zatwierdź" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <button type="button" class="btn btn-primary btn-rounded btn-lg" >
+        <a asp-controller="BazaLotów" asp-action="Index"><span style="color:white">Powrót do listy lotów</span></a>
+    </button>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
