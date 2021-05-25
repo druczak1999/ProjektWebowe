@@ -5,7 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="CoreAdmin" Version="1.4.0" />
+    <PackageReference Include="Grpc.Core" Version="2.37.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
+    <PackageReference Include="SAML2" Version="3.2.0.66" />
   </ItemGroup>
 
 </Project>

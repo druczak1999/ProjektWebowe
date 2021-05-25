@@ -10,5 +10,8 @@ namespace WyszukiwarkaLotówDR.Baza_danych
     {
         public Lot getLot(int id);
         public List<Lot> getLoty();
+        public void addLot(Lot lot);
+        public void deleteLot(int id);
+        public void updateLot(Lot lot);
     }
 }
