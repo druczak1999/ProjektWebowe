@@ -1,67 +1,73 @@
-﻿@model WyszukiwarkaLotówDR.Loty.Lot
+﻿@model WyszukiwarkaLotówDR.Models.LotModel
 
 @{
     ViewData["Title"] = "Details";
 }
 
-<h1>Szczegóły</h1>
 
-<div>
-    <h4>Lot</h4>
+
+<div >
+    <h2>Szczegóły lotu</h2>
+    
     <hr />
+    <dl class="row"><img src="~/images/@Model.Obraz" width="300" height="200"/> </dl>
     <dl class="row">
-        
-        <dt class = "col-sm-2">
+
+        <dt class="col-sm-2">
             Data i czas wylotu
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.czasWylotu)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             Data i czas przylotu
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.czasPrzylotu)
         </dd>
-        <dt class = "col-sm-2">
-           Miejsce wylotu
+        <dt class="col-sm-2">
+            Miejsce wylotu
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.miejsceWylotu)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             Miejsce przylotu
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.miejscePrzylotu)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             Lotnisko początkowe
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.kodLotniskaWylotu)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             Lotnisko końcowe
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.kodLotniskaPrzylotu)
         </dd>
-        <dt class = "col-sm-2">
-           Cena 1 biletu
+        <dt class="col-sm-2">
+            Cena 1 biletu
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.cenaBiletu)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.cenaBiletu) zł
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             Ilość wolnych miejsc
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.iloscMiejsc)
         </dd>
     </dl>
 </div>
 <div>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.idLotu }) |
-    <a asp-action="Index">Back to List</a>
+    <button type="button" class="btn btn-primary btn-rounded btn-lg" style="width: 300px; height: 60px">
+        <a asp-action="Index"><span style="color:white">Powrót do listy lotów</span></a>
+        </button>
+        <button type="button" class="btn btn-primary btn-rounded btn-lg text-center" style="width: 300px; height: 60px">
+            <a class="navbar-brand" asp-area="" asp-controller="ZakupBiletu" asp-action="Create"><span class="text-center" style="font-size: x-large; ">Kup bilet</span></a>
+        </button>
 </div>

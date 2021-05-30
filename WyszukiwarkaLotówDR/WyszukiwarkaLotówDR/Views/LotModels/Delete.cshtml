@@ -1,0 +1,77 @@
+﻿@model WyszukiwarkaLotówDR.Models.LotModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Usuwanie lotu</h1>
+
+<h3>Czy napewno chccesz usunąc ten lot?</h3>
+<div>
+  
+    <hr />
+    <dl class="row">
+       
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Przewoznik)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Przewoznik)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.czasWylotu)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.czasWylotu)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.czasPrzylotu)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.czasPrzylotu)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.miejsceWylotu)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.miejsceWylotu)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.miejscePrzylotu)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.miejscePrzylotu)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.kodLotniskaWylotu)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.kodLotniskaWylotu)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.kodLotniskaPrzylotu)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.kodLotniskaPrzylotu)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.cenaBiletu)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.cenaBiletu)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.iloscMiejsc)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.iloscMiejsc)
+        </dd>
+
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Usuń" class="btn btn-danger" /> |
+        <a asp-action="Index">Powrót do listy lotów</a>
+    </form>
+</div>

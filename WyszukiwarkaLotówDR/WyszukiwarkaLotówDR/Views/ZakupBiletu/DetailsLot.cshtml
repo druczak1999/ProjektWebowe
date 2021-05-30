@@ -1,0 +1,59 @@
+﻿@model WyszukiwarkaLotówDR.Baza_danych.Sprzedaz
+
+@{ ViewData["Title"] = "Details"; }
+
+
+<div>
+
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Klient.PESEL)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Klient.PESEL)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Klient.Imie)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Klient.Imie)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Klient.Nazwisko)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Klient.Nazwisko)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Klient.NumerDokumentu)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Klient.NumerDokumentu)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Klient.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Klient.Email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Klient.NumerTelefonu)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Klient.NumerTelefonu)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IloscBiletow)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IloscBiletow)
+        </dd>
+    </dl>
+</div>
+
+<button type="button" class="btn btn-primary btn-rounded btn-lg">
+    <a asp-area="" asp-controller="ZakupBiletu" asp-action="Create"><span class="text-center">Powrót</span></a>
+</button>
+<button type="button" class="btn btn-primary btn-rounded btn-lg" style="width: 300px; height: 60px">
+    <a asp-area="" asp-controller="Platnosc" asp-action="Index"><span class="text-center" style="color:white; ">Wbierz metodę płatności</span></a>
+</button>

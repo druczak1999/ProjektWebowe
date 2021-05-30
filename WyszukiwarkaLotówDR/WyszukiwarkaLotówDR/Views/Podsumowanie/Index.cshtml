@@ -1,0 +1,42 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{ }
+<div class="text-center align-items-center justify-content-center">
+    <img src="~/images/zatwierdziZaplac.png" />
+</div>
+<br />
+<h3>Dane na temat lotu</h3>
+<img src="~/images/@ViewBag.Obrazek" width="200" height="80" />
+<div>
+
+    @ViewBag.Lot
+
+</div>
+<div> @ViewBag.Lot2</div>
+<div> @ViewBag.Lot3 </div>
+<div>
+    @ViewBag.Ilosc
+</div>
+<h3>
+    Twoje dane osobowe
+</h3>
+<div>
+    @ViewBag.Klient
+</div>
+<div>
+    @ViewBag.Klient2
+</div>
+<div>
+    @ViewBag.Klient3
+</div>
+<h3>Metoda płatności</h3> @ViewBag.Platnosci1
+<div><h3>Łączna kwota do zapłaty</h3> @ViewBag.Suma zł</div>
+<br />
+
+<button type="button" class="btn btn-primary btn-rounded btn-lg">
+    <a asp-area="" asp-controller="Platnosc" asp-action="Index"><span class="text-center">Powrót</span></a>
+</button>
+<button type="button" class="btn btn-primary btn-rounded btn-lg">
+    <a asp-area="" asp-controller="Home" asp-action="Index"><span class="text-center">Zapłać</span></a>
+</button>

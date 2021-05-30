@@ -1,0 +1,91 @@
+﻿@model IEnumerable<WyszukiwarkaLotówDR.Models.LotModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista lotów</h1>
+
+<p>
+    <a asp-action="Create">Dodaj nowy lot</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Przewoźnik
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Przewoznik)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.czasWylotu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.czasPrzylotu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.miejsceWylotu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.miejscePrzylotu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.kodLotniskaWylotu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.kodLotniskaPrzylotu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cenaBiletu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.iloscMiejsc)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                <img src="~/images/@item.Obraz" width="100" height="70"/>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Przewoznik)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.czasWylotu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.czasPrzylotu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.miejsceWylotu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.miejscePrzylotu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.kodLotniskaWylotu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.kodLotniskaPrzylotu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cenaBiletu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.iloscMiejsc)
+            </td>
+
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edytuj</a> | <a asp-action="Details" asp-route-id="@item.Id">Szczegóły</a> | <a asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
+
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

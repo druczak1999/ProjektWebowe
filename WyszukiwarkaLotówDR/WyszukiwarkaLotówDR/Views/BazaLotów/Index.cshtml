@@ -1,64 +1,86 @@
-﻿@model IEnumerable<WyszukiwarkaLotówDR.Loty.Lot>
+﻿@model IEnumerable<WyszukiwarkaLotówDR.Models.LotModel>
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Wyszukiwarka lotów</h1>
+<img src="~/images/samolot.jpg" width="1110" height="450" />
+<br />
+<hr />
+<div class="text-center">
+    <h1>Wyszukaj lot</h1>
+</div>
+<br/>
+<div class="align-content-center text-center justify-content-center" >
+    <form asp-action="Index" method="get">
+        <div class="form-actions no-color">
+            <p>
+                Wpisz miejsce wylotu: <input type="text" name="mWylotu" value="@ViewData["Wylot"]" />
+                Wpisz miejsce przylotu: <input type="text" name="mPrzylotu" value="@ViewData["Przylot"]" />
+                <div class="md-form md-outline input-with-post-icon datepicker">
+                    Podaj datę wylotu: <input placeholder="Select date" type="date" id="example" class="form-control" name="data" value="@ViewData["DataWylotu"]">
+                </div>
+                <input type="submit" value="Szukaj" class="btn btn-default" />
+                <a asp-action="Index">Pokaż pełną listę lotów</a>
+            </p>
+        </div>
+    </form>
+</div>
 
 <table class="table">
     <thead>
         <tr>
-            <th></th>
+            <th>Przewoźnik</th>
             <th>
-                Data wylotu
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["DataSortParm"]">@Html.DisplayNameFor(model => model.czasWylotu) </a>
             </th>
             <th>
                 Data przylotu
             </th>
             <th>
-                Miejsce wylotu
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]">Miejsce wylotu</a>
             </th>
             <th>
                 Miejsce przylotu
             </th>
-            
+
             <th>
-                Cena biletu
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["CenaSortParm"]"> @Html.DisplayNameFor(model => model.cenaBiletu) </a>
             </th>
-           
+
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(45).jpg" width="50" height="30"/>
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.czasWylotu)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.czasPrzylotu)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.miejsceWylotu)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.miejscePrzylotu)
-            </td>
-            
-            <td>
-                @Html.DisplayFor(modelItem => item.cenaBiletu)
-            </td>
-            
-            <td>
-               
-                @Html.ActionLink("Details", "Details", new {  id=item.idLotu }) 
-                
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img src="~/images/@item.Obraz" width="70" height="40" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.czasWylotu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.czasPrzylotu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.miejsceWylotu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.miejscePrzylotu)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.cenaBiletu) zł
+                </td>
+
+                <td>
+
+                    @Html.ActionLink("Szczegóły", "Details", new { id = item.Id })
+
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
